@@ -1,10 +1,16 @@
-<div class="nav">
+<div id="nav">
     <ul>
         <li><a routerLink="../dashboard">Dashboard</a></li>
         <li><a routerLink="../matchscreen">Matchscreen</a></li>
     </ul>
 </div>
 
-<h1>Welcome to {{title}}!</h1>
-<h2>{{player1}}</h2>
-<h2>{{player2}}</h2>
+<currentmatch></currentmatch>
+
+<div>
+    <li class="matchSelector" *ngFor="let match of matches">
+        <button (click)="changeMatch(match.id)" mat-button>Send match {{match.id}} to stream</button>
+    </li>
+</div>
+
+<button (click)="Update()">Update</button>

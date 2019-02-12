@@ -1,21 +1,29 @@
-import { Component } from "@angular/core";
-import { MatchService } from "../omnilays.match.service";
+import { Component, Input, OnInit } from "@angular/core";
+import { MatchService } from "../matchservice/omnilays.match.service";
 import { Match } from '../omnilays.match.model';
+import { DashboardComponent } from '../dashboard/omnilays.dashboard';
 
 @Component({
     selector: 'matchscreen',
     templateUrl: './omnilays.matchscreen.html',
-    providers: [MatchService]
+    inputs: ["currentMatch"]
 })
 
-export class MatchScreenComponent {
+export class MatchScreenComponent implements OnInit{
+
+    currentMatch: Match
 
     constructor(private matchService:MatchService) {
+        
+    }
 
+    ngOnInit() {
+        this.currentMatch = this.matchService.getCurrentMatch()
     }
 
     title = "Matchscreen"
 
-    player1 = this.matchService.getCurrentMatch().player1.name
-    player2 = this.matchService.getCurrentMatch().player2.name
+    Update() {
+
+    }
 }
