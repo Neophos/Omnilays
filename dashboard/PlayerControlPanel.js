@@ -18,8 +18,6 @@ $(function () {
 
     var $operationResult = $('#operationResult');
 
-
-
     $updateButton.button();
     $swapButton.button();
 
@@ -55,12 +53,25 @@ $(function () {
 
         currentMatch = [player1Object, player2Object];
 
+        console.log("hopp");
+        console.log(currentMatch)
+
         replicantCurrentMatchData.value = currentMatch;
 
         NodeCG.waitForReplicants(replicantCurrentMatchData).then(() => {
             console.log(replicantCurrentMatchData.value)
         });
+    }
 
+    function swapPlayers() {
+        var temp = [$player1DropdownMenu.val(), $player1Score.val()];
+        $player1DropdownMenu.val($player2DropdownMenu.val());
+        $player1Score.val($player2Score.val());
+
+        $player2DropdownMenu.val(temp[0]);
+        $player2Score.val(temp[1]);
+
+        updateMatchStats();
     }
 
     function getPlayers() {
@@ -69,6 +80,10 @@ $(function () {
 
     $updateButton.click(function() {
         updateMatchStats();
+    });
+
+    $swapButton.click(function() {
+        swapPlayers();
     });
 
     function sleep(ms) {

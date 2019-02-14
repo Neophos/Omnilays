@@ -1,0 +1,198 @@
+/* @font-face {
+    font-family: 'OswaldRegular';
+    src: url('../img/Oswald-Regular.eot');
+    src: url('../img/Oswald-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RedXrd';
+    src: url('../img/1_class_3_RED.ttf');
+    src: url('../img/1_class_3_RED.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('bebasneue-regular-webfont.woff') format('woff');
+    src: url('bebasneue-regular-webfont.woff2') format('woff2');
+    src: url('bebasneue-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bebas';
+    src: url('/graphics/themes/destinationfight/bebasneue-regular-webfont.woff') format('woff');
+    src: url('/graphics/themes/destinationfight/bebasneue-regular-webfont.woff2') format('woff2');
+    src: url('/graphics/themes/destinationfight/bebasneue-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bebas1';
+    src: url('../fonts/bebasneue-regular-webfont.woff') format('woff');
+    src: url('../fonts/bebasneue-regular-webfont.woff2') format('woff2');
+    src: url('../fonts/bebasneue-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'BebasNeue', 'Bebas', 'Bebas1', helvetica, arial !important;
+}
+
+#window-container {
+   /* background-image: url('/view/nodecg-omnilays/img/xrdbg.jpg');*/
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+}
+
+#player1 {
+    float: left;
+    height: 45px;
+    margin-left: 200px;
+    position: relative;
+
+}
+#player2 {
+    float: right;
+    height: 45px;
+    margin-right: 200px;
+    position: relative;
+}
+
+#player1.playerContainer {
+    width: 300px;
+    height: 45px;
+    margin-left: 200px;
+    float: left;
+}
+
+#player2.playerContainer {
+    width: 300px;
+    height: 45px;
+    margin-right: 200px;
+    float: right;
+}
+
+.playerContainer {
+    background: #ca9;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: black;
+    overflow: hidden;
+    font-family: 'BebasNeue', 'Bebas', 'Bebas1', helvetica, arial;
+    font-size: 20px;
+    position: relative;
+}
+
+#player1Spinner {
+    display: block;
+    position: relative;
+    float: left;
+    background: #333;
+    top: 0px;
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    zoom: 0.7;
+}
+
+#player2Spinner {
+    display: block;
+    position: relative;
+    float: right;
+    background: #333;
+    top: 0px;
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    zoom: 0.7;
+}
+
+#player1Name {
+    text-align: right;
+    position: relative;
+    width: 200px;
+}
+
+#player2Name {
+    text-align: left;
+    position: relative;
+    width: 200px;
+}
+
+#player1Score {
+    float: right;
+    text-align: right;
+    text-shadow: 0 0 20px #ffffff;
+    font-size: 24px;
+    font-family: RedXrd, serif;
+}
+
+#player2Score {
+    float: left;
+    text-align: left;
+    text-shadow: 0 0 20px #ffffff;
+    font-size: 24px;
+    font-family: RedXrd, serif;
+}
+
+.flag {
+    padding-right: 15px;
+    margin: 5px;
+    overflow:hidden;
+}
+
+.name, .flag {
+    display: inline;
+    font-family: RedXrd, serif;
+    font-size: 24px;
+    padding: 20px;
+}
+
+.tag {
+    margin-left: 5px;
+    margin-right: 5px;
+    flex-basis: 520px;
+}
+
+#winsPicture {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 150px;
+    height: 60px;
+    background: #666;
+}
+
+#losesPicture {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 150px;
+    height: 60px;
+    background: #666;
+}
+
+.rotatingCW {
+    transform:rotate(540deg);
+    transition: all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.rotatingCCW {
+    transform:rotate(-540deg);
+    transition: all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.backToZero {
+    transform:rotate(0deg);
+    transition: all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}

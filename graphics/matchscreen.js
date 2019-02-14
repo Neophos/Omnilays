@@ -8,6 +8,8 @@ $(function() {
     var $player2Name = $('#player2Name');
     var $player1Score = $('#player1Score');
     var $player2Score = $('#player2Score');
+    var $player1Container = $('#player1 > .playerContainer');
+    var $player2Container = $('#player2 > .playerContainer');
 
     // Contains two objects, player 1 at value[0] and player 2 at value[1]
     var replicantCurrentMatchData = nodecg.Replicant("replicantCurrentMatch");
@@ -28,7 +30,7 @@ $(function() {
         {
             newPlayer(1);
         }
-        if(replicantCurrentMatchData.value[0].name != previousMatchData.value[1].name)
+        if(replicantCurrentMatchData.value[1].name != previousMatchData.value[1].name)
         {
             newPlayer(2);
         }
@@ -41,26 +43,71 @@ $(function() {
     }
 
     function newPlayer(side) {
-        if(side == 1)
-        {
-            console.log("hej")
-            $player1Name.text(replicantCurrentMatchData.value[0].name);
-        }
-        else if(side == 2)
-        {
-            console.log("hopp")
-            $player2Name.text(replicantCurrentMatchData.value[1].name);
-        }
+            switchName(side);
     }
     
     function initialize() {
-
-        console.log("init");
-
         previousMatchData.value = [{name:"", score:""}, {name:"", score:""}]
         $player1Name.text(" ba")
-        $player2Name.text("abaa ")
+        $player2Name.text("ba ")
         $player1Score.text(" ")
         $player2Score.text(" ")
+    }
+
+    function switchName(side) {
+        if(side == 1) {
+            $player1Spinner.toggleClass('rotatingCCW', true);
+            $player1Container.animate({
+                top: -100
+            }, 1500, function() {
+
+                $player1Spinner.toggleClass('rotatingCCW', false);
+
+                $player1Spinner.toggleClass('backToZero', true);
+
+                $player1Name.text(replicantCurrentMatchData.value[0].name);
+
+                $player1Container.animate({top: 0}, 1500, 'easeInOutBack',
+                    function() {
+                        $player1Spinner.toggleClass('backToZero', false);
+                    });
+            });
+        }
+        if(side == 2) {
+            $player2Spinner.toggleClass('rotatingCW', true);
+            $player2Container.animate({
+                top: -100
+            }, 1500, function() {
+
+                $player2Spinner.toggleClass('rotatingCW', false);
+
+                $player2Spinner.toggleClass('backToZero', true);
+
+                $player2Name.text(replicantCurrentMatchData.value[1].name);
+
+                $player2Container.animate({top: 0}, 1500, 'easeInOutBack',
+                    function() {
+                        $player2Spinner.toggleClass('backToZero', false);
+                    });
+            });
+        }
+    }
+
+    function updateScore(side) {
+        if(side == 1) {
+
+        }
+        else if(side == 2){
+
+        }
+    }
+
+    function winningScore(side) {
+        if(side == 1) {
+
+        }
+        else if(side == 2){
+
+        }
     }
 });
