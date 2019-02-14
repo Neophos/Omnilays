@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 The MIT License (MIT)
 
 Copyright (c) 2019 Neophos <neophos@bahnhof.se>
@@ -7,6 +8,11 @@ MIT License
 
 Copyright (c) 2019 Neophos
 >>>>>>> 499a7926afc8f135b4c1ffda29a288df6fdfef8e
+=======
+MIT License
+
+Copyright (c) 2018 Neophos
+>>>>>>> 88b2a2acd9fa761fc9b5cd54c9cf585866a26f68
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -16,12 +22,17 @@ copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 =======
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 >>>>>>> 499a7926afc8f135b4c1ffda29a288df6fdfef8e
+=======
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+>>>>>>> 88b2a2acd9fa761fc9b5cd54c9cf585866a26f68
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -29,9 +40,14 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 <<<<<<< HEAD
+<<<<<<< HEAD
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 =======
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 >>>>>>> 499a7926afc8f135b4c1ffda29a288df6fdfef8e
+=======
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+>>>>>>> 88b2a2acd9fa761fc9b5cd54c9cf585866a26f68

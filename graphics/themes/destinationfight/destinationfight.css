@@ -15,171 +15,123 @@
 }*/
 
 @font-face {
-    font-family: 'BebasNeue';
-    src: url('bebasneue-regular-webfont.woff') format('woff');
-    src: url('bebasneue-regular-webfont.woff2') format('woff2');
-    src: url('bebasneue-regular-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Bebas';
-    src: url('/graphics/themes/destinationfight/bebasneue-regular-webfont.woff') format('woff');
-    src: url('/graphics/themes/destinationfight/bebasneue-regular-webfont.woff2') format('woff2');
-    src: url('/graphics/themes/destinationfight/bebasneue-regular-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Bebas1';
-    src: url('../fonts/bebasneue-regular-webfont.woff') format('woff');
-    src: url('../fonts/bebasneue-regular-webfont.woff2') format('woff2');
-    src: url('../fonts/bebasneue-regular-webfont.ttf') format('truetype');
+    src: url('./bebasneue.woff') format('woff');
+    src: url('./bebasneue.woff2') format('woff2');
+    src: url('./bebasneue.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 body {
     overflow: hidden;
-    font-family: 'BebasNeue', 'Bebas', 'Bebas1', helvetica, arial !important;
+    font-family: 'Bebas', helvetica, arial;
+    font-size: 170%;
+    margin: 0;
+    padding: 0;
 }
 
 #window-container {
-   /* background-image: url('/view/nodecg-omnilays/img/xrdbg.jpg');*/
-    width: 1280px;
-    height: 720px;
+    width: 1920px;
+    height: 1080px;
     overflow: hidden;
 }
 
 #player1 {
     float: left;
-    height: 45px;
-    margin-left: 200px;
-    position: relative;
+    height: 70px;
+    width: 415px;
+    margin-left: 230px;
 
 }
 #player2 {
     float: right;
-    height: 45px;
-    margin-right: 200px;
-    position: relative;
+    height: 70px;
+    width: 415px;
+    margin-right: 230px;
 }
 
-#player1.playerContainer {
-    width: 300px;
-    height: 45px;
-    margin-left: 200px;
+#player1 .playerContainer { 
+    background: url("./player1bg.png");
+    background-size: cover;
     float: left;
 }
 
-#player2.playerContainer {
-    width: 300px;
-    height: 45px;
-    margin-right: 200px;
+#player2 .playerContainer {
+    background: url("./player2bg.png");
+    background-size: cover;
     float: right;
 }
 
 .playerContainer {
-    background: #ca9;
-    display: flex;
     align-items: center;
     height: 100%;
-    color: black;
+    width: 100%;
+    color: #fff;
     overflow: hidden;
-    font-family: 'BebasNeue', 'Bebas', 'Bebas1', helvetica, arial;
-    font-size: 20px;
     position: relative;
 }
 
 #player1Spinner {
-    display: block;
-    position: relative;
-    float: left;
-    background: #333;
-    top: 0px;
-    left: 0px;
-    width: 100px;
-    height: 100px;
-    zoom: 0.7;
+    position: absolute;
+    background: url("./spinner.png");
+    background-size: cover;
+    top: -29px;
+    left: 216px;
+    width: 88px;
+    height: 88px;
+    zoom: 1;
 }
 
 #player2Spinner {
-    display: block;
-    position: relative;
-    float: right;
-    background: #333;
-    top: 0px;
-    left: 0px;
-    width: 100px;
-    height: 100px;
-    zoom: 0.7;
+    position: absolute;
+    background: url("./spinner.png");
+    background-size: cover;
+    top: -29px;
+    right: 216px;
+    width: 88px;
+    height: 88px;
+    zoom: 1;
 }
 
 #player1Name {
-    text-align: right;
+    text-align: left;
+    float: left;
     position: relative;
     width: 200px;
+    padding: 20px 0 0 53px;
 }
 
 #player2Name {
+    float: left;
     text-align: left;
     position: relative;
     width: 200px;
+    padding: 20px 0 0 53px
 }
 
 #player1Score {
     float: right;
     text-align: right;
+    color: #000;
     text-shadow: 0 0 20px #ffffff;
-    font-size: 24px;
-    font-family: RedXrd, serif;
+    padding: 18px 75px 0 0;
 }
 
 #player2Score {
-    float: left;
+    float: right;
     text-align: left;
+    color: #000;
     text-shadow: 0 0 20px #ffffff;
-    font-size: 24px;
-    font-family: RedXrd, serif;
+    padding: 18px 75px 0 0;
 }
 
 .flag {
-    padding-right: 15px;
-    margin: 5px;
-    overflow:hidden;
-}
-
-.name, .flag {
-    display: inline;
-    font-family: RedXrd, serif;
-    font-size: 24px;
-    padding: 20px;
-}
-
-.tag {
-    margin-left: 5px;
-    margin-right: 5px;
-    flex-basis: 520px;
-}
-
-#winsPicture {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 150px;
-    height: 60px;
-    background: #666;
-}
-
-#losesPicture {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 150px;
-    height: 60px;
-    background: #666;
+    float: right;
+    height: 32px;
+    width: 32px;
+    background: #f00;
+    margin: 18px 38px 0 0;
 }
 
 .rotatingCW {

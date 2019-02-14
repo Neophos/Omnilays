@@ -8,6 +8,8 @@ $(function() {
     var $player2Name = $('#player2Name');
     var $player1Score = $('#player1Score');
     var $player2Score = $('#player2Score');
+    var $player1Flag = $('player1Flag');
+    var $player2Flag = $('player2Flag');
     var $player1Container = $('#player1 > .playerContainer');
     var $player2Container = $('#player2 > .playerContainer');
 
@@ -35,8 +37,11 @@ $(function() {
             newPlayer(2);
         }
 
-        $player1Score.text(replicantCurrentMatchData.value[0].score)
-        $player2Score.text(replicantCurrentMatchData.value[1].score)
+        $player1Score.text(replicantCurrentMatchData.value[0].score);
+        $player2Score.text(replicantCurrentMatchData.value[1].score);
+
+        $player1Flag.text(replicantCurrentMatchData.value[0].flag);
+        $player2Flag.text(replicantCurrentMatchData.value[1].flag);
 
         // Deep copy using JQuery
         previousMatchData = jQuery.extend(true, {}, replicantCurrentMatchData);
@@ -47,11 +52,13 @@ $(function() {
     }
     
     function initialize() {
-        previousMatchData.value = [{name:"", score:""}, {name:"", score:""}]
-        $player1Name.text(" ba")
-        $player2Name.text("ba ")
-        $player1Score.text(" ")
-        $player2Score.text(" ")
+        previousMatchData.value = [{name:"", score:"", flag:""}, {name:"", score:"", flag:""}]
+        $player1Name.text(" ba");
+        $player2Name.text("ba ");
+        $player1Score.text(" ");
+        $player2Score.text(" ");
+        $player1Flag.text(" ");
+        $player2Flag.text(" ");
     }
 
     function switchName(side) {
@@ -72,6 +79,9 @@ $(function() {
                         $player1Spinner.toggleClass('backToZero', false);
                     });
             });
+            console.log(replicantCurrentMatchData.value[0])
+            //$player1Flag.attr('class', 'flag flag-' + replicantCurrentMatchData.value[0]);
+        
         }
         if(side == 2) {
             $player2Spinner.toggleClass('rotatingCW', true);

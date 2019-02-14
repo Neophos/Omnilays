@@ -282,7 +282,6 @@ $(function () {
             var tableItems = "<tr><th>Tournament round</th><th>Player 1</th><th>Player 2</th><th>Send to control panel</th><th>Match played</th></tr>";
             var sets = b.entities.sets;
             var players = b.entities.player;
-            console.log("ping");
             nodecg.sendMessage("smashgg-sendplayerdata", players);
             sets.forEach(function (item) {
                 var player1 = $.grep(players, function (e) { return e.entrantId == item.entrant1Id; })[0];
