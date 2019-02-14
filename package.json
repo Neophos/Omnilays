@@ -1,0 +1,48 @@
+{
+  "name": "omnilays-3",
+  "version": "0.0.0",
+  "description": "Omnilays",
+  "homepage": "",
+  "author": {
+    "name": "Neophos",
+    "email": "neophos@bahnhof.se",
+    "url": ""
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^1.1.1",
+    "dashboardPanels": [
+      {
+        "name": "playerControlPanel",
+        "title": "Player Control Panel",
+        "width": 3,
+        "file": "PlayerControlPanel.html",
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "smashGGControlPanel",
+        "title": "SmashGG Control Panel",
+        "width": 4,
+        "file": "SmashGGControlPanel.html",
+        "headlerColor": "#525F78"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "matchscreen.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git",
+  "license": "MIT"
+}

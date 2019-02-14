@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<style>
+		.monospace {
+			font-family: monospace;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="PlayerControlPanel.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/redmond/jquery-ui.css">
+</head>
+<body>
+	<div id="playersDashboard">
+		<div id="playerScores">
+			<div class="playerRow">
+				<div class="playerName">
+					<label for="player1NameDropdown">Player 1 Nickname</label>
+					<select id="p1ayer1NameDropdown">
+						<option selected="selected"></option>
+					</select>
+				</div>
+				<div class="playerScore">
+					<label for="player1Score">Score</label>
+					<input type="number" min="0" max="99" id="player1Score" value="0">
+					<button type="button" id="player1AddPoint"></button>
+				</div>
+			</div>
+	
+			<div class="playerRow">
+				<div class="playerName">
+					<label for="player2NameDropdown">Player 2 Nickname</label>
+					<select id="p1ayer2NameDropdown">
+						<option selected="selected"></option>
+					</select>
+				</div>
+				<div class="playerScore">
+					<label for="player2Score">Score</label>
+					<input type="number" min="0" max="99" id="player2Score" value="0">
+					<button type="button" id="player2AddPoint"></button>
+				</div>
+			</div>
+
+		</div>
+		<div id="matchLimitContainer">
+				<label for="matchLimitCounter">Set is First To </label>
+				<input type="number" name="matchLimitCounter" min="1" max="99" value="1"> 
+		</div>
+	
+		<button type="button" id="updateButton">Update View</button>
+		<button type="button" id="swapButton">Swap players</button>
+	</div>
+</body>
+</html>
