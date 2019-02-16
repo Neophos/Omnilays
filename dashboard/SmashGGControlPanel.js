@@ -287,6 +287,8 @@ $(function () {
                 var player1 = $.grep(players, function (e) { return e.entrantId == item.entrant1Id; })[0];
                 var player2 = $.grep(players, function (e) { return e.entrantId == item.entrant2Id; })[0];
 
+
+
                 if (player1 && player2) {
                     var control = "<input type='button' id='sendmatch-" + item.id + "'>";
                     var newItem = "<tr><td>" + item.fullRoundText + "</td><td>" + player1.gamerTag + "</td><td>" + player2.gamerTag + "</td><td>" + control + "</td><td></input><input type='checkbox'></input></tr>";
@@ -308,7 +310,7 @@ $(function () {
                         var currentMatch = $.grep(sets, function(e) { return e.id == item.id; })[0];
                         var player1 = $.grep(players, function (e) { return e.entrantId == currentMatch.entrant1Id; })[0];
                         var player2 = $.grep(players, function (e) { return e.entrantId == currentMatch.entrant2Id; })[0];
-
+                        nodecg.sendMessage("smashgg-sendrounddata", item.fullRoundText);
                         nodecg.sendMessage("smashgg-setplayersactive", { p1: player1, p2: player2 });
                         setOperationResult("Sent player data to Player Control Dashboard", true);
                     });

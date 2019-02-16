@@ -10,8 +10,9 @@ $(function () {
     var $player2DropdownMenu = $('#p1ayer2NameDropdown');
     var $player1Score = $('#player1Score');
     var $player2Score = $('#player2Score');
-    var $player1Flag = $('player1Flag');
-    var $player2Flag = $('player2Flag');
+    var $player1Flag = $('#player1Flag');
+    var $player2Flag = $('#player2Flag');
+    var $tournamentRound = $('#tournamentRound');
     // An array consisting of all current player objects
     var replicantPlayerData = nodecg.Replicant("replicantPlayerData");
     // Replicant for current match, consists of two players and their scores
@@ -34,12 +35,14 @@ $(function () {
     });
 
     $player1AddPointButton.click(function () {
-		$player1Score.val(Number($player1Score.val()) + 1);
-		updateMatchStats();
+        $player1Score.val(Number($player1Score.val()) + 1);
+        updateMatchStats();
+        nodecg.sendMessage("updateScore", 1);
     });
     $player2AddPointButton.click(function () {
-		$player2Score.val(Number($player2Score.val()) + 1);
-		updateMatchStats();
+        $player2Score.val(Number($player2Score.val()) + 1);
+        updateMatchStats();
+        nodecg.sendMessage("updateScore", 2);
     });
 
     async function updateMatchStats() {
@@ -55,11 +58,9 @@ $(function () {
         player2Object.score = $player2Score.val();
         player2Object.flag = $player2Flag.val();
 
-        currentMatch = [player1Object, player2Object];
+        currentMatch = [player1Object, player2Object, $tournamentRound.val()];
 
         replicantCurrentMatchData.value = currentMatch;
-
-        console.log(currentMatch)
 
         NodeCG.waitForReplicants(replicantCurrentMatchData).then(() => {
             //console.log(replicantCurrentMatchData.value)
@@ -85,6 +86,8 @@ $(function () {
 
     $updateButton.click(function() {
         updateMatchStats();
+        nodecg.sendMessage("updateScore", 1);
+        nodecg.sendMessage("updateScore", 2);
     });
 
     $swapButton.click(function() {
@@ -125,6 +128,9 @@ $(function () {
         $player2Score.val(0);
         $player1Flag.val(value.p1.flag);
         $player2Flag.val(value.p2.flag);
+
+        nodecg.sendMessage("updateScore", 1);
+        nodecg.sendMessage("updateScore", 2);
 
         updateMatchStats();
 	});

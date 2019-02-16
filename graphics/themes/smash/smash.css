@@ -1,0 +1,235 @@
+/* @font-face {
+    font-family: 'OswaldRegular';
+    src: url('../img/Oswald-Regular.eot');
+    src: url('../img/Oswald-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RedXrd';
+    src: url('../img/1_class_3_RED.ttf');
+    src: url('../img/1_class_3_RED.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./rubik.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Rubiklight';
+    src: url('./rubiklight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Rubik', helvetica, arial;
+    font-size: 170%;
+    margin: 0;
+    padding: 0;
+}
+
+#window-container {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+}
+
+#player1 {
+    float: left;
+    height: 114px;
+    width: 561px;
+    margin-left: 283px;
+    margin-top: 5px;
+
+}
+#player2 {
+    float: right;
+    height: 114px;
+    width: 561px;
+    margin-right: 283px;
+    margin-top: 5px;
+}
+
+#player1 .playerContainer { 
+    background: url("./player1bg.png");
+    background-size: cover;
+    float: left;
+    clip-path: inset(0 0px 0 0);
+}
+
+#player2 .playerContainer {
+    background: url("./player2bg.png");
+    background-size: cover;
+    float: right;
+    clip-path: inset(0px 0px 0px 0px);
+}
+
+#player1ScoreHighlight1 {
+    background: url("./scorehighlight.png");
+    float: left;
+    position: relative;
+    width: 39px;
+    height: 19px;
+    left: 109px;
+    visibility: hidden;
+}
+#player1ScoreHighlight2 {
+    background: url("./scorehighlight.png");
+    float: left;
+    position: relative;
+    width: 39px;
+    height: 19px;
+    left: 97px;
+    visibility: hidden;
+}
+#player1ScoreHighlight3 {
+    background: url("./scorehighlight.png");
+    float: left;
+    position: relative;
+    width: 39px;
+    height: 19px;
+    left: 85px;
+    visibility: hidden;
+}
+
+#player2ScoreHighlight3 {
+    background: url("./scorehighlight.png");
+    transform: scaleX(-1);
+    float: right;
+    position: relative;
+    width: 39px;
+    height: 19px;
+    right: 109px;
+    visibility: hidden;
+}
+#player2ScoreHighlight2 {
+    background: url("./scorehighlight.png");
+    transform: scaleX(-1);
+    float: right;
+    position: relative;
+    width: 39px;
+    height: 19px;
+    right: 97px;
+    visibility: hidden;
+}
+#player2ScoreHighlight1 {
+    background: url("./scorehighlight.png");
+    transform: scaleX(-1);
+    float: right;
+    position: relative;
+    width: 39px;
+    height: 19px;
+    right: 85px;
+    visibility: hidden;
+}
+
+#midbar {
+    background: url("./midbar.png");
+    background-size: cover;
+    position: relative;
+    height: 153px;
+    width: 476px;
+    margin: auto;
+    z-index: 1;
+    text-align: center;
+}
+
+#tournamentRound {
+    padding-top: 100px;
+    font-variant: small-caps;
+}
+
+.playerContainer {
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+#player1Spinner {
+    position: absolute;
+    background: url("./spinner.png");
+    background-size: cover;
+    top: -29px;
+    left: 216px;
+    width: 88px;
+    height: 88px;
+    zoom: 1;
+}
+
+#player2Spinner {
+    position: absolute;
+    background: url("./spinner.png");
+    background-size: cover;
+    top: -29px;
+    right: 216px;
+    width: 88px;
+    height: 88px;
+    zoom: 1;
+}
+
+#player1Name {
+    text-align: left;
+    float: left;
+    position: relative;
+    width: 200px;
+    padding: 28px 0 0 65px;
+}
+
+#player2Name {
+    float: left;
+    text-align: right;
+    position: relative;
+    width: 200px;
+    padding: 28px 0 0 195px;
+}
+
+#player1Score {
+    float: left;
+    text-align: left;
+    position: relative;
+    right: 290px;
+    top: 35px;
+    color: #fff;
+    text-shadow: 0 0 20px #000;
+}
+
+#player2Score {
+    float: right;
+    text-align: left;
+    color: #fff;
+    text-shadow: 0 0 20px #000;
+    padding: 14px 85px 0 0;
+}
+
+.flag {
+    float: right;
+    height: 32px;
+    width: 32px;
+    background: #f00;
+    margin: 18px 38px 0 0;
+}
+
+.rotatingCW {
+    transform:rotate(540deg);
+    transition: all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.rotatingCCW {
+    transform:rotate(-540deg);
+    transition: all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.backToZero {
+    transform:rotate(0deg);
+    transition: all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}

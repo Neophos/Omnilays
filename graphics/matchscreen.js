@@ -13,6 +13,19 @@ $(function() {
     var $player1Container = $('#player1 > .playerContainer');
     var $player2Container = $('#player2 > .playerContainer');
 
+    var $player1ScoreHighlight1 = $('#player1ScoreHighlight1');
+    var $player1ScoreHighlight2 = $('#player1ScoreHighlight2');
+    var $player1ScoreHighlight3 = $('#player1ScoreHighlight3');
+
+    var $player2ScoreHighlight1 = $('#player2ScoreHighlight1');
+    var $player2ScoreHighlight2 = $('#player2ScoreHighlight2');
+    var $player2ScoreHighlight3 = $('#player2ScoreHighlight3');
+
+    //var $replicantCurrentTheme = nodecg.replicant(replicantCurrentTheme);
+
+    var $tournamentRound = $('#tournamentRound');
+
+
     // Contains two objects, player 1 at value[0] and player 2 at value[1]
     var replicantCurrentMatchData = nodecg.Replicant("replicantCurrentMatch");
     var previousMatchData = new Object();
@@ -24,6 +37,10 @@ $(function() {
         console.log(`replicant data for current match changed from ${oldValue} to ${newValue}`);
 
         updateScreen();
+    });
+
+    nodecg.listenFor("updateScore", function(side) {
+        updateScore(side);
     });
 
     function updateScreen() {
@@ -43,12 +60,14 @@ $(function() {
         $player1Flag.text(replicantCurrentMatchData.value[0].flag);
         $player2Flag.text(replicantCurrentMatchData.value[1].flag);
 
+        $tournamentRound.text(replicantCurrentMatchData.value[2]);
+
         // Deep copy using JQuery
         previousMatchData = jQuery.extend(true, {}, replicantCurrentMatchData);
     }
 
     function newPlayer(side) {
-            switchName(side);
+        switchName(side);
     }
     
     function initialize() {
@@ -103,15 +122,6 @@ $(function() {
         }
     }
 
-    function updateScore(side) {
-        if(side == 1) {
-
-        }
-        else if(side == 2){
-
-        }
-    }
-
     function winningScore(side) {
         if(side == 1) {
 
@@ -120,4 +130,8 @@ $(function() {
 
         }
     }
+
+    nodecg.listenFor("smashgg-sendrounddata", function() {
+
+    });
 });
