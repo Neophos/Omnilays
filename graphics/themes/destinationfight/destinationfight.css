@@ -41,24 +41,26 @@ body {
     float: left;
     height: 70px;
     width: 415px;
-    margin-left: 230px;
+    margin-left: 330px;
+    margin-top: -1px;
 
 }
 #player2 {
     float: right;
     height: 70px;
     width: 415px;
-    margin-right: 230px;
+    margin-right: 330px;
+    margin-top: -1px;
 }
 
 #player1 .playerContainer { 
-    background: url("./player1bg.png");
+    background: url("./player1bgnew.png");
     background-size: cover;
     float: left;
 }
 
 #player2 .playerContainer {
-    background: url("./player2bg.png");
+    background: url("./player2bgnew.png");
     background-size: cover;
     float: right;
 }
@@ -72,12 +74,28 @@ body {
     position: relative;
 }
 
+#midbar {
+    background: url("./midbar.png");
+    background-size: cover;
+    position: relative;
+    height: 153px;
+    width: 476px;
+    margin: auto;
+    z-index: 1;
+    text-align: center;
+}
+
+#tournamentRound {
+    padding-top: 100px;
+    font-variant: small-caps;
+}
+
 #player1Spinner {
     position: absolute;
     background: url("./spinner.png");
     background-size: cover;
     top: -29px;
-    left: 216px;
+    left: 316px;
     width: 88px;
     height: 88px;
     zoom: 1;
@@ -88,7 +106,7 @@ body {
     background: url("./spinner.png");
     background-size: cover;
     top: -29px;
-    right: 216px;
+    right: 316px;
     width: 88px;
     height: 88px;
     zoom: 1;
@@ -98,16 +116,14 @@ body {
     text-align: left;
     float: left;
     position: relative;
-    width: 200px;
     padding: 20px 0 0 53px;
 }
 
 #player2Name {
-    float: left;
-    text-align: left;
+    float: right;
+    text-align: right;
     position: relative;
-    width: 200px;
-    padding: 20px 0 0 53px
+    padding: 20px 53px 0 0;
 }
 
 #player1Score {
@@ -116,6 +132,7 @@ body {
     color: #000;
     text-shadow: 0 0 20px #ffffff;
     padding: 18px 75px 0 0;
+    visibility: hidden;
 }
 
 #player2Score {
@@ -124,6 +141,7 @@ body {
     color: #000;
     text-shadow: 0 0 20px #ffffff;
     padding: 18px 75px 0 0;
+    visibility: hidden;
 }
 
 .flag {

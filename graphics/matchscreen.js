@@ -21,6 +21,10 @@ $(function() {
     var $player2ScoreHighlight2 = $('#player2ScoreHighlight2');
     var $player2ScoreHighlight3 = $('#player2ScoreHighlight3');
 
+    var player1ClipPath;
+    var player2ClipPath;
+    var offset = 200;
+
     //var $replicantCurrentTheme = nodecg.replicant(replicantCurrentTheme);
 
     var $tournamentRound = $('#tournamentRound');
@@ -82,42 +86,63 @@ $(function() {
 
     function switchName(side) {
         if(side == 1) {
+
             $player1Spinner.toggleClass('rotatingCCW', true);
-            $player1Container.animate({
-                top: -100
-            }, 1500, function() {
 
-                $player1Spinner.toggleClass('rotatingCCW', false);
+            $player1Container.animate({  now: '+=400' },
+            {
+                duration:1500,
+                easing:'easeInOutQuart',
+                step: function(now,fx) {
+                    player1ClipPath = 0 + ' ' + (now - offset) + 'px ' + 0 + ' ' + 0;
+                    $player1Container.css('left', now)
+                    $player1Container.css({"clip-path": 'inset(' + player1ClipPath + ')'});
+                },
+                complete: function() {
 
-                $player1Spinner.toggleClass('backToZero', true);
-
-                $player1Name.text(replicantCurrentMatchData.value[0].name);
-
-                $player1Container.animate({top: 0}, 1500, 'easeInOutBack',
-                    function() {
-                        $player1Spinner.toggleClass('backToZero', false);
-                    });
+                    $player1Spinner.toggleClass('rotatingCCW', false);
+                    $player1Spinner.toggleClass('backToZero', true);
+                    $player1Container.animate({  now: '-=400' },
+                    {
+                        duration:1500,
+                        easing: 'easeOutBack',
+                        step: function(now,fx) {
+                            $player1Name.text(replicantCurrentMatchData.value[0].name);
+                            player1ClipPath = 0 + ' ' + (now - offset) + 'px ' + 0 + ' ' + 0;
+                            $player1Container.css('left', now)
+                            $player1Container.css({"clip-path": 'inset(' + player1ClipPath + ')'});
+                        },
+                        complete: function() {
+                            $player1Spinner.toggleClass('backToZero', false);
+                        }
+                    })
+                }
             });
-            console.log(replicantCurrentMatchData.value[0])
-            //$player1Flag.attr('class', 'flag flag-' + replicantCurrentMatchData.value[0]);
         
         }
         if(side == 2) {
-            $player2Spinner.toggleClass('rotatingCW', true);
-            $player2Container.animate({
-                top: -100
-            }, 1500, function() {
-
-                $player2Spinner.toggleClass('rotatingCW', false);
-
-                $player2Spinner.toggleClass('backToZero', true);
-
-                $player2Name.text(replicantCurrentMatchData.value[1].name);
-
-                $player2Container.animate({top: 0}, 1500, 'easeInOutBack',
-                    function() {
-                        $player2Spinner.toggleClass('backToZero', false);
-                    });
+            $player2Container.animate({  now: '+=400' },
+            {
+                duration:1500,
+                easing:'easeInOutQuart',
+                step: function(now,fx) {
+                    player2ClipPath = 0 + ' ' + 0 + ' ' + 0 + ' ' + (now - offset) + 'px ';
+                    $player2Container.css('left', -now)
+                    $player2Container.css({"clip-path": 'inset(' + player2ClipPath + ')'});
+                },
+                complete: function() {
+                    $player2Container.animate({  now: '-=400' },
+                    {
+                        duration:1500,
+                        easing: 'easeOutBack',
+                        step: function(now,fx) {
+                            $player2Name.text(replicantCurrentMatchData.value[1].name);
+                            player2ClipPath = 0 + ' ' + 0 + ' ' + 0 + ' ' + (now - offset) + 'px ';
+                            $player2Container.css('left', -now)
+                            $player2Container.css({"clip-path": 'inset(' + player2ClipPath + ')'});
+                        }
+                    })
+                }
             });
         }
     }

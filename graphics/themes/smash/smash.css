@@ -46,7 +46,7 @@ body {
     height: 114px;
     width: 561px;
     margin-left: 283px;
-    margin-top: 5px;
+    margin-top: -1px;
 
 }
 #player2 {
@@ -54,7 +54,7 @@ body {
     height: 114px;
     width: 561px;
     margin-right: 283px;
-    margin-top: 5px;
+    margin-top: -1px;
 }
 
 #player1 .playerContainer { 
