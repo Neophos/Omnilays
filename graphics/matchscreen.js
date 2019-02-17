@@ -121,16 +121,20 @@ $(function() {
         
         }
         if(side == 2) {
+            $player2Spinner.toggleClass('rotatingCW', true);
+
             $player2Container.animate({  now: '+=400' },
             {
                 duration:1500,
                 easing:'easeInOutQuart',
                 step: function(now,fx) {
                     player2ClipPath = 0 + ' ' + 0 + ' ' + 0 + ' ' + (now - offset) + 'px ';
+                    $player2Spinner.toggleClass('rotatingCW', true);
                     $player2Container.css('left', -now)
                     $player2Container.css({"clip-path": 'inset(' + player2ClipPath + ')'});
                 },
                 complete: function() {
+                    $player2Spinner.toggleClass('backToZero', true);
                     $player2Container.animate({  now: '-=400' },
                     {
                         duration:1500,
@@ -139,6 +143,7 @@ $(function() {
                             $player2Name.text(replicantCurrentMatchData.value[1].name);
                             player2ClipPath = 0 + ' ' + 0 + ' ' + 0 + ' ' + (now - offset) + 'px ';
                             $player2Container.css('left', -now)
+                            $player2Spinner.toggleClass('backToZero', true);
                             $player2Container.css({"clip-path": 'inset(' + player2ClipPath + ')'});
                         }
                     })

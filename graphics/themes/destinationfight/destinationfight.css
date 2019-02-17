@@ -86,7 +86,7 @@ body {
 }
 
 #tournamentRound {
-    padding-top: 100px;
+    padding-top: 93px;
     font-variant: small-caps;
 }
 
@@ -153,16 +153,16 @@ body {
 }
 
 .rotatingCW {
-    transform:rotate(540deg);
+    transform:rotate(720deg);
     transition: all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 .rotatingCCW {
-    transform:rotate(-540deg);
+    transform:rotate(-720deg);
     transition: all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 .backToZero {
-    transform:rotate(0deg);
+    transform:rotate(720deg);
     transition: all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
