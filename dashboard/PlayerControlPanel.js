@@ -4,6 +4,7 @@ $(function () {
     // Main navigational buttons
     var $updateButton = $('#updateButton');
     var $swapButton = $('#swapButton');
+    var $newMatchButton = $('#newMatchButton');
     var $player1AddPointButton = $('#player1AddPoint');
     var $player2AddPointButton = $('#player2AddPoint');
     var $player1DropdownMenu = $('#p1ayer1NameDropdown');
@@ -13,9 +14,12 @@ $(function () {
     var $player1Flag = $('#player1Flag');
     var $player2Flag = $('#player2Flag');
     var $tournamentRound = $('#tournamentRound');
+    var $matchLimitCounter = $('#matchLimitCounter');
+    var $matchLimitAddButton = $('#matchLimitAdd');
+    var $matchLimitLowerButton = $('#matchLimitLower');
     // An array consisting of all current player objects
     var replicantPlayerData = nodecg.Replicant("replicantPlayerData");
-    // Replicant for current match, consists of two players and their scores
+    // Replicant for current match, consists of two players, the current tournament round and the set match limit
     var replicantCurrentMatchData = nodecg.Replicant("replicantCurrentMatch")
 
 
@@ -23,6 +27,7 @@ $(function () {
 
     $updateButton.button();
     $swapButton.button();
+    $newMatchButton.button();
 
     $player1AddPointButton.button({
         icons: { primary: "ui-icon-plus"},
@@ -34,18 +39,48 @@ $(function () {
         text: false
     });
 
-    $player1AddPointButton.click(function () {
-        $player1Score.val(Number($player1Score.val()) + 1);
-        updateMatchStats();
-        nodecg.sendMessage("updateScore", 1);
-    });
-    $player2AddPointButton.click(function () {
-        $player2Score.val(Number($player2Score.val()) + 1);
-        updateMatchStats();
-        nodecg.sendMessage("updateScore", 2);
+    $matchLimitAddButton.button({
+        icons: { primary: "ui-icon-plus"},
+        text: false
     });
 
-    async function updateMatchStats() {
+    $matchLimitLowerButton.button({
+        icons: { primary: "ui-icon-minus"},
+        text: false
+    });
+
+    $player1AddPointButton.click(function () {
+        if($player1Score.val() < $matchLimitCounter.val())
+        {
+            $player1Score.val(Number($player1Score.val()) + 1);
+            updateMatchStats();
+            nodecg.sendMessage("updateScore", 1);
+        }
+    });
+    $player2AddPointButton.click(function () {
+        if($player2Score.val() < $matchLimitCounter.val())
+        {
+            $player2Score.val(Number($player2Score.val()) + 1);
+            updateMatchStats();
+            nodecg.sendMessage("updateScore", 2);
+        }
+    });
+
+    $matchLimitAddButton.click(function() {
+        $matchLimitCounter.val(Number($matchLimitCounter.val()) + 1);
+        updateMatchStats();
+    });
+
+    $matchLimitLowerButton.click(function() {
+        $matchLimitCounter.val(Number($matchLimitCounter.val()) - 1);
+        if($matchLimitCounter.val() < 1)
+        {
+            $matchLimitCounter.val(1);
+        }
+        updateMatchStats();
+    });
+
+    function updateMatchStats() {
         var currentMatch = [];
         var player1Object = new Object();
         var player2Object = new Object();
@@ -58,7 +93,9 @@ $(function () {
         player2Object.score = $player2Score.val();
         player2Object.flag = $player2Flag.val();
 
-        currentMatch = [player1Object, player2Object, $tournamentRound.val()];
+        console.log(player1Object.score);
+
+        currentMatch = [player1Object, player2Object, $tournamentRound.val(), $matchLimitCounter.val()];
 
         replicantCurrentMatchData.value = currentMatch;
 
@@ -86,12 +123,17 @@ $(function () {
 
     $updateButton.click(function() {
         updateMatchStats();
-        nodecg.sendMessage("updateScore", 1);
-        nodecg.sendMessage("updateScore", 2);
     });
 
     $swapButton.click(function() {
         swapPlayers();
+    });
+
+    $newMatchButton.click(function() {
+        nodecg.sendMessage("newMatch");
+        $player1Score.val(0);
+        $player2Score.val(0);
+        updateMatchStats();
     });
 
     function sleep(ms) {
@@ -128,9 +170,6 @@ $(function () {
         $player2Score.val(0);
         $player1Flag.val(value.p1.flag);
         $player2Flag.val(value.p2.flag);
-
-        nodecg.sendMessage("updateScore", 1);
-        nodecg.sendMessage("updateScore", 2);
 
         updateMatchStats();
 	});

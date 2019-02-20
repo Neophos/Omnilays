@@ -78,16 +78,31 @@ body {
     background: url("./midbar.png");
     background-size: cover;
     position: relative;
-    height: 153px;
-    width: 476px;
+    height: 87px;
+    width: 439px;
     margin: auto;
-    z-index: 1;
+    z-index: 5;
     text-align: center;
+    top: -85px;
 }
 
 #tournamentRound {
-    padding-top: 93px;
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    background: url("./tournamentround.png") center top no-repeat;
+    top: 0;
+    height: 65px;
+    width: 254px;
     font-variant: small-caps;
+    color: #fff;
+    text-shadow: 0 0 10px #000, 0 0 10px #000;
+    z-index: 1;
+}
+
+#tournamentRoundText {
+    position: relative;
+    top: 19px;
 }
 
 #player1Spinner {
@@ -142,6 +157,45 @@ body {
     text-shadow: 0 0 20px #ffffff;
     padding: 18px 75px 0 0;
     visibility: hidden;
+}
+
+#player1ScoreHighlight1 {
+    left: -100px;
+}
+#player1ScoreHighlight2 {
+    left: -100px;
+}
+#player1ScoreHighlight3 {
+    left: -100px;
+}
+
+#player2ScoreHighlight3 {
+    transform: scaleX(-1);
+    float: right;
+    right: -100px;
+}
+#player2ScoreHighlight2 {
+    transform: scaleX(-1);
+    float: right;
+    right: -100px;
+}
+#player2ScoreHighlight1 {
+    transform: scaleX(-1);
+    float: right;
+    right: -100px;
+}
+
+.playerScoreHighlight {
+    background: url("./scorehighlight.png");
+    float: left;
+    position: absolute;
+    width: 101px;
+    height: 59px;
+    top: -10px;
+}
+
+.pointScored {
+    background: url("./scorehighlightpoint.png") !important;
 }
 
 .flag {
