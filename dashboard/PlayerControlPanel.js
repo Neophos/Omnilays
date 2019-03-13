@@ -163,7 +163,7 @@ $(function () {
         });
     });
 
-	nodecg.listenFor('smashgg-setplayersactive', function(value, callback) {
+    nodecg.listenFor('smashgg-setplayersactive', function(value, callback) {
         $player1DropdownMenu.val(value.p1.gamerTag);
         $player2DropdownMenu.val(value.p2.gamerTag);
         $player1Score.val(0);
@@ -172,5 +172,9 @@ $(function () {
         $player2Flag.val(value.p2.flag);
 
         updateMatchStats();
-	});
+    });
+
+    nodecg.listenFor('smashgg-sendrounddata', function(value, callback) {
+        $tournamentRound.val(value);
+    });
 })
