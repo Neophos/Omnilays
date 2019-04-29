@@ -284,6 +284,7 @@ $(function () {
             var players = b.entities.player;
             nodecg.sendMessage("smashgg-sendplayerdata", players);
             sets.forEach(function (item) {
+                item.fullRoundText = item.fullRoundText.replace('-Final', 's').replace(' Final', ' Finals');
                 var player1 = $.grep(players, function (e) { return e.entrantId == item.entrant1Id; })[0];
                 var player2 = $.grep(players, function (e) { return e.entrantId == item.entrant2Id; })[0];
 
