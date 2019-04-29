@@ -24,7 +24,7 @@
 				</div>
 				<div class="playerScore">
 					<label for="player1Score">Score</label>
-					<input type="number" min="0" max="99" id="player1Score" value="0">
+					<input type="number" readonly="true" min="0" max="99" id="player1Score" value="0">
 					<button type="button" id="player1AddPoint"></button>
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 				</div>
 				<div class="playerScore">
 					<label for="player2Score">Score</label>
-					<input type="number" min="0" max="99" id="player2Score" value="0">
+					<input type="number" readonly="true" min="0" max="99" id="player2Score" value="0">
 					<button type="button" id="player2AddPoint"></button>
 				</div>
 			</div>
@@ -46,7 +46,9 @@
 		</div>
 		<div id="matchLimitContainer">
 				<label for="matchLimitCounter">Set is First To </label>
-				<input type='number' id='matchLimitCounter' min='1' max='99' value='1'>
+				<input type='number' readonly="true" id='matchLimitCounter' min='1' max='99' value='1'>
+				<button type="button" id="matchLimitAdd"></button>
+				<button type="button" id="matchLimitLower"></button>
 		</div>
 		<div id="tournamentRoundContainer">
 			<label for="tournamentRound">Tournament Round: </label>
@@ -55,6 +57,7 @@
 	
 		<button type="button" id="updateButton">Update View</button>
 		<button type="button" id="swapButton">Swap players</button>
+		<button type="button" id="newMatchButton">Start new match</button>
 	</div>
 </body>
 </html>
