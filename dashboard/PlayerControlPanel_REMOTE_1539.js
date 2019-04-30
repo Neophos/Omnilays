@@ -9,12 +9,6 @@ $(function () {
     var $player2AddPointButton = $('#player2AddPoint');
     var $player1DropdownMenu = $('#p1ayer1NameDropdown');
     var $player2DropdownMenu = $('#p1ayer2NameDropdown');
-    var $player1NameManual = $('#player1NameManual');
-    var $player2NameManual = $('#p1ayer2NameManual');
-    var $player1NameOverrideButton = $('#player1NameOverride');
-    var $player2NameOverrideButton = $('#player2NameOverride');
-    var $player1TournamentPoint = $('#player1TournamentPoint');
-    var $player2TournamentPoint = $('#player2TournamentPoint');
     var $player1Score = $('#player1Score');
     var $player2Score = $('#player2Score');
     var $player1Flag = $('#player1Flag');
@@ -55,21 +49,6 @@ $(function () {
         text: false
     });
 
-    $matchLimitLowerButton.button({
-        icons: { primary: "ui-icon-minus"},
-        text: false
-    });
-
-    $player1NameOverrideButton.button({
-        icons: { primary: "ui-icon-power"},
-        text: false
-    })
-    $player2NameOverrideButton.button({
-        icons: { primary: "ui-icon-power"},
-        text: false
-    })
-
-
     $player1AddPointButton.click(function () {
         if($player1Score.val() < $matchLimitCounter.val())
         {
@@ -85,21 +64,6 @@ $(function () {
             updateMatchStats();
             nodecg.sendMessage("updateScore", 2);
         }
-    });
-
-    $player1NameOverrideButton.click(function() {
-        $player1DropdownMenu.append(
-            $('<option>', {
-                text: $player1NameManual.val()
-        }, '</option>'));
-        $player1DropdownMenu.val($player1NameManual.val());
-    });
-    $player2NameOverrideButton.click(function() {
-        $player2DropdownMenu.append(
-            $('<option>', {
-                text: $player2NameManual.val()
-        }, '</option>'));
-        $player2DropdownMenu.val($player2NameManual.val());
     });
 
     $matchLimitAddButton.click(function() {
@@ -123,13 +87,13 @@ $(function () {
 
         player1Object.name = $player1DropdownMenu.val();
         player1Object.score = $player1Score.val();
-        player1Object.flag = $player1Flag;
-        player1Object.tournamentPoint = $player1TournamentPoint.val();
+        player1Object.flag = $player1Flag.val();
 
         player2Object.name = $player2DropdownMenu.val();
         player2Object.score = $player2Score.val();
-        player2Object.flag = $player2Flag;
-        player2Object.tournamentPoint = $player2TournamentPoint.val();
+        player2Object.flag = $player2Flag.val();
+
+        console.log(player1Object.score);
 
         currentMatch = [player1Object, player2Object, $tournamentRound.val(), $matchLimitCounter.val()];
 
@@ -172,6 +136,10 @@ $(function () {
         updateMatchStats();
     });
 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     nodecg.listenFor('smashgg-sendplayerdata', function(value, callback) {
         var playerNames = new Array();
 
@@ -200,8 +168,8 @@ $(function () {
         $player2DropdownMenu.val(value.p2.gamerTag);
         $player1Score.val(0);
         $player2Score.val(0);
-        $player1Flag = value.p1.country;
-        $player2Flag = value.p2.country;
+        $player1Flag.val(value.p1.flag);
+        $player2Flag.val(value.p2.flag);
 
         updateMatchStats();
     });

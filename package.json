@@ -1,5 +1,5 @@
 {
-  "name": "omnilays-3",
+  "name": "Omnilays",
   "version": "0.0.0",
   "description": "Omnilays",
   "homepage": "",
@@ -44,12 +44,16 @@
     ],
     "graphics": [
       {
-        "file": "matchscreen.html",
+        "file": "themes/destinationfight/matchscreen.html",
         "width": 1920,
         "height": 1080
-      }
-    ]
+      },
+      {
+        "file": "themes/headstomper/matchscreen.html",
+        "width": 1920,
+        "height": 1080
+      }]
   },
-  "repository": "https://github.com/nodecg/nodecg.git",
+  "repository": "https://github.com/neophos/omnilays.git",
   "license": "MIT"
 }

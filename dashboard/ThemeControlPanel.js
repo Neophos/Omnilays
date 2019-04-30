@@ -2,7 +2,7 @@
 $(function () {
     var $updateButton = $('#updateButton');
     var $themeSelector = $('#themeSelector');
-    var $replicantCurrentTheme = nodecg.replicant("replicantCurrentTheme");
+    //var $replicantCurrentTheme = nodecg.replicant("replicantCurrentTheme");
 
     $updateButton.button();
 

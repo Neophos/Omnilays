@@ -167,6 +167,7 @@ $(function() {
                     $player2Container.css({"clip-path": 'inset(' + player2ClipPath + ')'});
                 },
                 complete: function() {
+                    $player2Spinner.toggleClass('rotatingCW', false);
                     $player2Spinner.toggleClass('backToZero', true);
                     $player2Container.animate({  now: '-=400' },
                     {
@@ -176,8 +177,10 @@ $(function() {
                             $player2Name.text(replicantCurrentMatchData.value[1].name);
                             player2ClipPath = 0 + ' ' + 0 + ' ' + 0 + ' ' + (now - offset) + 'px ';
                             $player2Container.css('left', -now)
-                            $player2Spinner.toggleClass('backToZero', true);
                             $player2Container.css({"clip-path": 'inset(' + player2ClipPath + ')'});
+                        },
+                        complete: function() {
+                            $player2Spinner.toggleClass('backToZero', false);
                         }
                     })
                 }

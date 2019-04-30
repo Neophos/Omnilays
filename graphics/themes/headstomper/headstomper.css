@@ -1,0 +1,181 @@
+@font-face {
+    font-family: 'LeagueSpartan';
+    src: url('./LeagueSpartan-Bold.woff') format('woff');
+    src: url('./LeagueSpartan-Bold.woff2') format('woff2');
+    src: url('./LeagueSpartan-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'LeagueSpartan', helvetica, arial;
+    font-size: 170%;
+    margin: 0;
+    padding: 0;
+}
+
+#window-container {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+}
+
+#player1 {
+    float: left;
+    height: 42px;
+    width: 467px;
+    margin-left: 350px;
+    margin-top: -1px;
+    z-index: 1;
+
+}
+#player2 {
+    float: right;
+    height: 42px;
+    width: 467px;
+    margin-right: 350px;
+    margin-top: -1px;
+}
+
+#player1 .playerContainer { 
+    background: url("./player1bg.png");
+    background-size: cover;
+    float: left;
+}
+
+#player2 .playerContainer {
+    background: url("./player2bg.png");
+    background-size: cover;
+    float: right;
+}
+
+.playerContainer {
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: #000;
+    overflow: hidden;
+    position: relative;
+}
+
+#midbar {
+    background: url("./midbar.png");
+    background-size: cover;
+    position: absolute;
+    height: 47px;
+    width: 382px;
+    text-align: center;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#tournamentRound {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    top: 0;
+    height: 65px;
+    width: 254px;
+    font-variant: small-caps;
+    color: #000;
+    z-index: 1;
+}
+
+#tournamentRoundText {
+    position: relative;
+    top: 12px;
+    font-size: 70%; 
+}
+
+#player1Spinner {
+    position: absolute;
+    background: url("./spinner.png");
+    background-size: cover;
+    top: -35px;
+    left: 300px;
+    width: 80px;
+    height: 80px;
+    zoom: 1;
+}
+
+#player2Spinner {
+    position: absolute;
+    background: url("./spinner.png");
+    background-size: cover;
+    top: -35px;
+    right: 300px;
+    width: 80px;
+    height: 80px;
+    zoom: 1;
+}
+
+#player1Name {
+    text-align: left;
+    float: left;
+    position: relative;
+    padding: 10px 0 0 73px;
+}
+
+#player2Name {
+    float: right;
+    text-align: right;
+    position: relative;
+    padding: 10px 73px 0 0;
+}
+
+#player1Score {
+    position: relative;
+    float: left;
+    text-align: right;
+    left: 8px;
+    top: 10px;
+    color: #000;
+    text-shadow: 0 0 2px #e00b67;
+    z-index: 3;
+}
+
+#player2Score {
+    position: relative;
+    float: right;
+    text-align: right;
+    right: 8px;
+    top: 10px;
+    color: #000;
+    text-shadow: 0 0 2px #e00b67;
+    z-index: 3;
+}
+
+#player1Flag {
+    width: 55px;
+    height: 35px;
+    background-size: 960px 960px;
+    position: relative;
+    left: 4px;
+    top: 4px;
+}
+
+#player2Flag {
+    width: 55px;
+    height: 35px;
+    background-size: 960px 960px;
+    position: relative;
+    right: -408px;
+    top: 4px;
+}
+
+.rotatingCW {
+    transform:rotate(720deg);
+    transition: all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.rotatingCCW {
+    transform:rotate(-720deg);
+    transition: all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.backToZero {
+    transform:rotate(0);
+    transition: all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}

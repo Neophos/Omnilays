@@ -12,12 +12,10 @@ module.exports = function(nodecg) {
 	});
 	
 	nodecg.listenFor('smashgg-getevent', function(value, callback) {
-		console.log("smashgg-getevent: " + value);
 		request(api_url + '/event/' + value + '?expand[]=phase&expand[]=groups', callback);
 	});
 
 	nodecg.listenFor('smashgg-getphasegroup', function(value, callback) {
-		console.log("smashgg-getphasegroup: " + value);
         request(api_url + '/phase_group/' + value + '?expand[]=sets&expand[]=entrants&expand[]=standings&expand[]=seeds', callback);
 	});
 };

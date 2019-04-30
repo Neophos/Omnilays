@@ -217,6 +217,6 @@ body {
 }
 
 .backToZero {
-    transform:rotate(720deg);
+    transform:rotate(0);
     transition: all 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
