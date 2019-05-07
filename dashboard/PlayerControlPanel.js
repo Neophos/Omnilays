@@ -10,7 +10,7 @@ $(function () {
     var $player1DropdownMenu = $('#p1ayer1NameDropdown');
     var $player2DropdownMenu = $('#p1ayer2NameDropdown');
     var $player1NameManual = $('#player1NameManual');
-    var $player2NameManual = $('#p1ayer2NameManual');
+    var $player2NameManual = $('#player2NameManual');
     var $player1NameOverrideButton = $('#player1NameOverride');
     var $player2NameOverrideButton = $('#player2NameOverride');
     var $player1TournamentPoint = $('#player1TournamentPoint');
@@ -92,10 +92,18 @@ $(function () {
             $('<option>', {
                 text: $player1NameManual.val()
         }, '</option>'));
+        $player2DropdownMenu.append(
+            $('<option>', {
+                text: $player1NameManual.val()
+        }, '</option>'));
         $player1DropdownMenu.val($player1NameManual.val());
     });
     $player2NameOverrideButton.click(function() {
         $player2DropdownMenu.append(
+            $('<option>', {
+                text: $player2NameManual.val()
+        }, '</option>'));
+        $player1DropdownMenu.append(
             $('<option>', {
                 text: $player2NameManual.val()
         }, '</option>'));
