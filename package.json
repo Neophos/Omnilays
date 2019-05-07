@@ -45,6 +45,11 @@
         "file": "themes/headstomper/matchscreen.html",
         "width": 1920,
         "height": 1080
+      },
+      {
+        "file": "themes/rikk/matchscreen.html",
+        "width": 1920,
+        "height": 1080
       }]
   },
   "repository": "https://github.com/neophos/omnilays.git",

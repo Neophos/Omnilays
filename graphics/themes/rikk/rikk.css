@@ -1,0 +1,153 @@
+@font-face {
+    font-family: 'Saira';
+    src: url('./sairaregular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SairaBold';
+    src: url('./sairabold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Saira', helvetica, arial;
+    font-size: 170%;
+    margin: 0;
+    padding: 0;
+}
+
+#window-container {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+}
+
+#player1 {
+    float: left;
+    height: 82px;
+    width: 481px;
+    margin-left: 350px;
+    margin-top: -1px;
+    z-index: 1;
+
+}
+#player2 {
+    float: right;
+    height: 82px;
+    width: 481px;
+    margin-right: 350px;
+    margin-top: -1px;
+}
+
+#player1 .playerContainer { 
+    background: url("./player1bg.png");
+    background-size: cover;
+    float: left;
+}
+
+#player2 .playerContainer {
+    background: url("./player2bg.png");
+    background-size: cover;
+    float: right;
+}
+
+.playerContainer {
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: #000;
+    overflow: hidden;
+    position: relative;
+}
+
+#midbar {
+    background: url("./midbar.png");
+    background-size: cover;
+    position: absolute;
+    height: 40px;
+    width: 220px;
+    text-align: center;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#tournamentRound {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    top: 0;
+    height: 65px;
+    width: 254px;
+    font-variant: small-caps;
+    color: #fff;
+    z-index: 1;
+}
+
+#tournamentRoundText {
+    position: relative;
+    top: 12px;
+    font-size: 70%; 
+}
+
+#player1Name {
+    text-align: left;
+    float: left;
+    position: relative;
+    color: #fff;
+    left: 120px;
+    bottom: 53px;
+}
+
+#player2Name {
+    float: right;
+    text-align: right;
+    position: relative;
+    color: #fff;
+    right: 120px;
+    bottom: 53px;
+}
+
+#player1Score {
+    position: relative;
+    float: right;
+    text-align: right;
+    left: -30px;
+    top: -51px;
+    color: #fff;
+    text-shadow: 0 0 2px #fff8d5;
+    z-index: 3;
+}
+
+#player2Score {
+    position: relative;
+    float: left;
+    text-align: right;
+    right: -30px;
+    top: -51px;
+    color: #fff;
+    text-shadow: 0 0 2px #fff8d5;
+    z-index: 3;
+}
+
+#player1Flag {
+    width: 78px;
+    height: 78px;
+    background-size: 1920px 1920px;
+    position: relative;
+    border-radius: 39px;
+    border: 2px solid #fff;
+}
+
+#player2Flag {
+    width: 78px;
+    height: 78px;
+    background-size: 1920px 1920px;
+    position: relative;
+    border-radius: 39px;
+    border: 2px solid #fff;
+    left: 400px;
+}

@@ -1,8 +1,6 @@
 'use strict';
 $(function() {
 
-    var $player1Spinner = $('#player1Spinner');
-    var $player2Spinner = $('#player2Spinner');
     var $player1Name = $('#player1Name');
     var $player2Name = $('#player2Name');
     var $player1Score = $('#player1Score');
@@ -15,10 +13,6 @@ $(function() {
     var $player2Container = $('#player2 > .playerContainer');
 
     var matchLimitScore;
-
-    var player1ClipPath;
-    var player2ClipPath;
-    var offset = 200;
 
     //var $replicantCurrentTheme = nodecg.replicant(replicantCurrentTheme);
 
@@ -91,34 +85,22 @@ $(function() {
     function switchName(side) {
         if(side == 1) {
 
-            $player1Spinner.toggleClass('rotatingCCW', true);
-
-            $player1Container.animate({  now: '+=400' },
+            $player1Container.animate({  now: '+=100' },
             {
                 duration:1500,
                 easing:'easeInOutQuart',
                 step: function(now,fx) {
-                    player1ClipPath = 0 + ' ' + (now - offset) + 'px ' + 0 + ' ' + 0;
-                    $player1Container.css('left', now)
-                    $player1Container.css({"clip-path": 'inset(' + player1ClipPath + ')'});
+                    $player1Container.css('top', -now)
                 },
                 complete: function() {
-
-                    $player1Spinner.toggleClass('rotatingCCW', false);
-                    $player1Spinner.toggleClass('backToZero', true);
-                    $player1Container.animate({  now: '-=400' },
+                    $player1Container.animate({  now: '-=100' },
                     {
                         duration:1500,
                         easing: 'easeOutBack',
                         step: function(now,fx) {
                             $player1Name.text(replicantCurrentMatchData.value[0].name);
                             setFlags(side);
-                            player1ClipPath = 0 + ' ' + (now - offset) + 'px ' + 0 + ' ' + 0;
-                            $player1Container.css('left', now)
-                            $player1Container.css({"clip-path": 'inset(' + player1ClipPath + ')'});
-                        },
-                        complete: function() {
-                            $player1Spinner.toggleClass('backToZero', false);
+                            $player1Container.css('top', -now)
                         }
                     })
                 }
@@ -127,31 +109,22 @@ $(function() {
         }
         if(side == 2) {
 
-            $player2Spinner.toggleClass('rotatingCW', true);
-
-            $player2Container.animate({  now: '+=400' },
+            $player2Container.animate({  now: '+=100' },
             {
                 duration:1500,
                 easing:'easeInOutQuart',
                 step: function(now,fx) {
-                    player2ClipPath = 0 + ' ' + 0 + ' ' + 0 + ' ' + (now - offset) + 'px ';
-                    $player2Spinner.toggleClass('rotatingCW', true);
-                    $player2Container.css('left', -now)
-                    $player2Container.css({"clip-path": 'inset(' + player2ClipPath + ')'});
+                    $player2Container.css('top', -now)
                 },
                 complete: function() {
-                    $player2Spinner.toggleClass('backToZero', true);
-                    $player2Container.animate({  now: '-=400' },
+                    $player2Container.animate({  now: '-=100' },
                     {
                         duration:1500,
                         easing: 'easeOutBack',
                         step: function(now,fx) {
                             $player2Name.text(replicantCurrentMatchData.value[1].name);
                             setFlags(side);
-                            player2ClipPath = 0 + ' ' + 0 + ' ' + 0 + ' ' + (now - offset) + 'px ';
-                            $player2Container.css('left', -now)
-                            $player2Spinner.toggleClass('backToZero', true);
-                            $player2Container.css({"clip-path": 'inset(' + player2ClipPath + ')'});
+                            $player2Container.css('top', -now)
                         }
                     })
                 }
@@ -176,9 +149,9 @@ $(function() {
     
             $player1Flag.toggleClass("flag-" + $player1CountryCode.toLowerCase(), true);
 
-            var temp = parseInt($player1Flag.css("background-position-x")) * 2 - 4;
+            var temp = parseInt($player1Flag.css("background-position-x")) * 4 - 16;
             $player1Flag.css("background-position-x", temp + "px");
-            temp = parseInt($player1Flag.css("background-position-y")) * 2 - 12;
+            temp = parseInt($player1Flag.css("background-position-y")) * 4 - 22;
             $player1Flag.css("background-position-y", temp + "px");
         }
         if(side == 2) {
@@ -189,9 +162,9 @@ $(function() {
     
             $player2Flag.toggleClass("flag-" + $player2CountryCode.toLowerCase(), true);
 
-            var temp = parseInt($player2Flag.css("background-position-x")) * 2 - 4;
+            var temp = parseInt($player2Flag.css("background-position-x")) * 4 - 16;
             $player2Flag.css("background-position-x", temp + "px");
-            temp = parseInt($player2Flag.css("background-position-y")) * 2 - 12;
+            temp = parseInt($player2Flag.css("background-position-y")) * 4 - 22;
             $player2Flag.css("background-position-y", temp + "px");
         }
     }

@@ -13,6 +13,10 @@ $(function () {
     var $player2NameManual = $('#player2NameManual');
     var $player1NameOverrideButton = $('#player1NameOverride');
     var $player2NameOverrideButton = $('#player2NameOverride');
+    var $player1FlagManual = $('#player1FlagManual');
+    var $player1FlagOverrideButton = $('#player1FlagOverride');
+    var $player2FlagManual = $('#player2FlagManual');
+    var $player2FlagOverrideButton = $('#player2FlagOverride');
     var $player1TournamentPoint = $('#player1TournamentPoint');
     var $player2TournamentPoint = $('#player2TournamentPoint');
     var $player1Score = $('#player1Score');
@@ -68,6 +72,14 @@ $(function () {
         icons: { primary: "ui-icon-power"},
         text: false
     })
+    $player1FlagOverrideButton.button({
+        icons: { primary: "ui-icon-power"},
+        text: false
+    })
+    $player2FlagOverrideButton.button({
+        icons: { primary: "ui-icon-power"},
+        text: false
+    })
 
 
     $player1AddPointButton.click(function () {
@@ -110,6 +122,13 @@ $(function () {
         $player2DropdownMenu.val($player2NameManual.val());
     });
 
+    $player1FlagOverrideButton.click(function() {
+        $player1Flag = $player1FlagManual.val();
+    });
+    $player2FlagOverrideButton.click(function() {
+        $player2Flag = $player2FlagManual.val();
+    });
+
     $matchLimitAddButton.click(function() {
         $matchLimitCounter.val(Number($matchLimitCounter.val()) + 1);
         updateMatchStats();
@@ -149,9 +168,6 @@ $(function () {
     }
 
     function swapPlayers() {
-
-        console.log("hej");
-
         var temp = [$player1DropdownMenu.val(), $player1Score.val(), $player1Flag];
         $player1DropdownMenu.val($player2DropdownMenu.val());
         $player1Score.val($player2Score.val());
