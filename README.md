@@ -11,7 +11,7 @@ There is a portable version for Windows here: https://mega.nz/#!HpgAVQDa!XX49b1l
 
 Omnilays is preconfigured to run on localhost:9090. It currently supports fetching tournaments from smash.gg.
 
-Fetch the names using the SmashGG Dashboard, then make sure that the names, the round name and the match limit are all correct. Once they are, press "Start new match" to add the scores. Use the plus button next to the scores to add points.
+Fetch the names using the SmashGG Dashboard, and press the buttons next to the matches to add that to the scoreboard. If you manually change a name, use "Update View" to push to the overlay. If restarting a match manually, use "Start new match" to reset scores. Otherwise, when you add a match from smash.gg control panel it will automatically start a new match.
 
 ## Thanks
 
