@@ -33,13 +33,6 @@
         "width": 4,
         "file": "SmashGGControlPanel.html",
         "headlerColor": "#525F78"
-      },
-      {
-        "name": "themeControlPanel",
-        "title": "Theme Switcher",
-        "width": 2,
-        "file": "ThemeControlPanel.html",
-        "headerColor": "#525F78"
       }
     ],
     "graphics": [

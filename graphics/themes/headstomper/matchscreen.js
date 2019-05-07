@@ -157,6 +157,9 @@ $(function() {
     }
 
     function setFlags(side) {
+
+        console.log("switch flags");
+
         if(side == 1) {
     
             $player1Flag.toggleClass("flag-" + $player1CountryCode.toLowerCase(), false);

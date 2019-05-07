@@ -141,14 +141,17 @@ $(function () {
     }
 
     function swapPlayers() {
-        var temp = [$player1DropdownMenu.val(), $player1Score.val(), $player1Flag.val()];
+
+        console.log("hej");
+
+        var temp = [$player1DropdownMenu.val(), $player1Score.val(), $player1Flag];
         $player1DropdownMenu.val($player2DropdownMenu.val());
         $player1Score.val($player2Score.val());
-        $player1Flag.val($player2Flag.val());
+        $player1Flag = $player2Flag;
 
         $player2DropdownMenu.val(temp[0]);
         $player2Score.val(temp[1]);
-        $player2Flag.val(temp[2]);
+        $player2Flag = temp[2];
 
         updateMatchStats();
     }
