@@ -5,7 +5,7 @@ Omnilays is a program for managing overlays for tournaments. It uses a simple da
 
 Omnilays runs on Node 10.15.2 LTS and NodeCG 1.3.1. You install it as a bundle for NodeCG.
 
-There is a portable version for Windows here: https://mega.nz/#!HpgAVQDa!XX49b1lcm6CNY1WsaE68xQ78N95MxzJORwxU-ldRs3Y You simply download, unzip and then run StartOmnilays.bat to run the app.
+There is a portable version for Windows here: https://mega.nz/#!HpgAVQDa!XX49b1lcm6CNY1WsaE68xQ78N95MxzJORwxU-ldRs3Y You simply download and unzip. Then, update Omnilays by downloading the latest master here: https://github.com/Neophos/Omnilays/archive/master.zip and Unzip that in the /bundles/-folder. Overwrite as necessary. Then run StartOmnilays.bat and open a browser to localhost:9090.
 
 ## Usage
 
