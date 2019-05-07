@@ -149,9 +149,9 @@ $(function() {
     
             $player1Flag.toggleClass("flag-" + $player1CountryCode.toLowerCase(), true);
 
-            var temp = parseInt($player1Flag.css("background-position-x")) * 4 - 16;
+            var temp = parseInt($player1Flag.css("background-position-x")) * 4 - 24;
             $player1Flag.css("background-position-x", temp + "px");
-            temp = parseInt($player1Flag.css("background-position-y")) * 4 - 22;
+            temp = parseInt($player1Flag.css("background-position-y")) * 4 - 24;
             $player1Flag.css("background-position-y", temp + "px");
         }
         if(side == 2) {
@@ -162,9 +162,9 @@ $(function() {
     
             $player2Flag.toggleClass("flag-" + $player2CountryCode.toLowerCase(), true);
 
-            var temp = parseInt($player2Flag.css("background-position-x")) * 4 - 16;
+            var temp = parseInt($player2Flag.css("background-position-x")) * 4 - 24;
             $player2Flag.css("background-position-x", temp + "px");
-            temp = parseInt($player2Flag.css("background-position-y")) * 4 - 22;
+            temp = parseInt($player2Flag.css("background-position-y")) * 4 - 24;
             $player2Flag.css("background-position-y", temp + "px");
         }
     }
