@@ -83,7 +83,7 @@ $(function () {
 
 
     $player1AddPointButton.click(function () {
-        if($player1Score.val() < $matchLimitCounter.val())
+        if(Number($player1Score.val()) < Number($matchLimitCounter.val()))
         {
             $player1Score.val(Number($player1Score.val()) + 1);
             updateMatchStats();
@@ -91,7 +91,7 @@ $(function () {
         }
     });
     $player2AddPointButton.click(function () {
-        if($player2Score.val() < $matchLimitCounter.val())
+        if(Number($player2Score.val()) < Number($matchLimitCounter.val()))
         {
             $player2Score.val(Number($player2Score.val()) + 1);
             updateMatchStats();
@@ -109,6 +109,7 @@ $(function () {
                 text: $player1NameManual.val()
         }, '</option>'));
         $player1DropdownMenu.val($player1NameManual.val());
+        updateMatchStats();
     });
     $player2NameOverrideButton.click(function() {
         $player2DropdownMenu.append(
@@ -120,13 +121,16 @@ $(function () {
                 text: $player2NameManual.val()
         }, '</option>'));
         $player2DropdownMenu.val($player2NameManual.val());
+        updateMatchStats();
     });
 
     $player1FlagOverrideButton.click(function() {
         $player1Flag = $player1FlagManual.val();
+        updateMatchStats();
     });
     $player2FlagOverrideButton.click(function() {
         $player2Flag = $player2FlagManual.val();
+        updateMatchStats();
     });
 
     $matchLimitAddButton.click(function() {
